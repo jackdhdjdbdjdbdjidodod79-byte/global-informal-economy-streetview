@@ -159,4 +159,8 @@ This repository is designed to allow reviewers to:
 
 No external data download is required for the demo.
 
+The scripts in the `src/` folder provide the full analytical workflow. 
+
+However, for demonstration and reproducibility, users only need to run `run_demo.py`.
+
 
