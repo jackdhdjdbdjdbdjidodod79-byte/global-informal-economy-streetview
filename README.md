@@ -1,12 +1,48 @@
-# Street Vitality from Grid-level Texture Fluctuations
+# Global Informal Economy from Street View Imagery
 
-This repository provides a reproducible implementation of a texture-based method for quantifying street vitality using street view imagery.
+This repository contains the code and a demonstration dataset for the study:
 
-The method computes grayscale texture fluctuations at the grid level and aggregates them into proxy vitality values across different street components (sidewalks, roadways, and stalls), enabling fine-grained spatial analysis of urban vitality.
+**"Environmental constraints shape informal economic behaviour across global cities"**
+
+submitted to *Nature Human Behaviour*.
 
 ---
 
-## 1. System requirements
+## 1. Overview
+
+This project quantifies informal economic activity (street vendors) at a global scale using street view imagery and vision–language models (CLIP).
+
+Instead of relying on manual surveys or headcounts, we extract a **vendor activity index** directly from images, enabling consistent, scalable measurement across diverse urban contexts.
+
+---
+
+## 2. Data Description
+
+### Demo dataset
+
+A small demonstration dataset is provided:
+
+demo_data/demo_clip_scores.csv
+  
+This file includes:
+
+- `city_id` — unique city identifier  
+- `country_iso2` — ISO country code  
+- `city_name` — city name  
+- `city_role` — Metropolitan / Livability  
+- `street_id` — street segment identifier  
+- `image_id` — street view image ID  
+- `lat`, `lon` — geographic coordinates  
+- `captured_at` — timestamp (UTC)  
+- `vendor_score` — CLIP-derived vendor activity score  
+
+Note:  
+This dataset is a **small subset for demonstration only**.  
+The full dataset used in the study contains ~250,000+ images and is not publicly released due to platform restrictions.
+
+---
+
+## 3. System Requirements
 
 The code was tested on:
 
@@ -14,11 +50,11 @@ The code was tested on:
 - Python 3.10  
 - Anaconda environment  
 
-No non-standard hardware is required for the demo. GPU acceleration is optional for large-scale CLIP inference.
+No non-standard hardware is required. GPU is optional (for large-scale CLIP inference only).
 
 ---
 
-## 2. Installation
+## 4. Installation
 
 Create a Python environment and install dependencies:
 
@@ -27,76 +63,100 @@ conda create -n vendor_streetview python=3.10 -y
 conda activate vendor_streetview
 pip install -r requirements.txt
 ```
-Typical installation time on a standard desktop computer is approximately 5–10 minutes.
+Typical installation time: 5–10 minutes on a standard desktop computer.
 
-## 3. Demo
+## 5. Demo: Running the code
 
-A small demo dataset is provided to illustrate the workflow.
+Run the demo script:
 
-- Run the demo:
-- python run_demo.py
-  
-- Input：
-- demo_data/demo_clip_scores.csv
-  
-- This file contains a simplified example of grid-level observations with the following fields:
-- street_id: street segment identifier
-- lap_mean: grayscale texture intensity
-- ROI: region of interest (sidewalk / roadway / stall)
-- clip_score: semantic score derived from image analysis
+python run_demo.py
 
-- Output：
-- outputs/demo_result.csv
-  
-- The output includes:
-- Grid-level proxy vitality values
-- ROI-level aggregated vitality
-- Street-level vitality indicators
-  
-- Expected runtime：
-- Less than 1 minute on a standard desktop computer
-  
-## 4. Instructions for use (full pipeline)
+This will:
 
-To apply the method to your own data:
+- Load the demo dataset
+- Aggregate vendor scores at street level
+- Compute simple statistics
+- Output summary results
 
-- Step 1: Prepare input data
+## 6. Expected Output
 
-- Your dataset should include at least the following columns:
+The script prints:
 
-- street_id
-- lap_mean
-- ROI (sidewalk, roadway, stall)
-- clip_score (optional, for extended analysis)
+- Mean vendor score
+- Distribution summary
+- Aggregated street-level statistics
 
-- Step 2: Run the analysis
-- python run_demo.py
-- (For extended workflows, modular scripts can be placed under /src.)
+Example output:
 
-- Step 3: Outputs
-- The pipeline generates:
-- Grid-level vitality estimates
-- ROI-level vitality aggregation
-- Street-level vitality indices
+- Mean vendor score: 0.41
+- Number of images: 20
+- Number of streets: 10
 
-## 5. Reproducibility
+Expected runtime: < 5 seconds
 
-All quantitative results presented in the manuscript can be reproduced using:
+## 7. Reproducibility
 
-- run_demo.py (demonstration workflow)
-- The provided demo dataset
-- The analytical pipeline follows a deterministic procedure without stochastic components.
-  
-## 6. Code availability
+To reproduce the main analytical workflow:
 
-The code supporting this study is available at:
-- https://github.com/jackdhdjdbdjdbdjidodod79-byte/global-informal-economy-streetview
+- Collect street view images via Mapillary API
+- Apply CLIP model to extract vendor-related semantic scores
+- Aggregate scores at image → street → city levels
+- Conduct statistical analysis (correlation, regression, distribution analysis)
 
-## 7. Data availability
+Due to API and data licensing constraints, only a demonstration dataset is provided here.
 
-A sample dataset is included in the repository for demonstration purposes.
-- Due to data volume and licensing constraints, the full dataset used in the study is available from the corresponding author upon reasonable request.
+## 8. Software and Dependencies
 
-## 8. License
+Key Python packages:
 
-This project is licensed under the MIT License. See the LICENSE file for details.  
+- pandas
+- numpy
+- matplotlib
+- scikit-learn
+
+Full list available in:
+
+requirements.txt
+
+## 9. Code Availability
+
+All code used in this study is available in this repository.
+
+The repository includes:
+
+- Data processing scripts
+- Demonstration dataset
+- Reproducible analysis pipeline
+
+## 10. Data Availability
+
+The demo dataset is included in this repository.
+
+The full dataset is not publicly shared due to:
+
+Platform usage restrictions (Mapillary)
+Data size constraints
+
+However, all analytical procedures are fully reproducible. 
+
+## 11. License
+
+This project is released under the MIT License.
+
+## 12. Contact
+
+For questions, please contact:
+
+Yan Gui:971463944@qq.com
+
+## 13. Notes for Reviewers
+
+This repository is designed to allow reviewers to:
+
+- Run the code without additional setup
+- Verify analytical logic
+- Inspect data structure and outputs
+
+No external data download is required for the demo.
+
+
