@@ -1,1 +1,25 @@
+city_id,country_iso2,city_name,city_role,street_id,image_id,lat,lon,captured_at,vendor_score
+TH__Metropolitan__Bangkok,TH,Bangkok,Metropolitan,TH_BKK_s001,TH_BKK_img001,13.7563,100.5018,2023-04-12T09:15:00Z,0.72
+TH__Metropolitan__Bangkok,TH,Bangkok,Metropolitan,TH_BKK_s001,TH_BKK_img002,13.7566,100.5021,2023-04-12T09:16:00Z,0.64
+TH__Metropolitan__Bangkok,TH,Bangkok,Metropolitan,TH_BKK_s002,TH_BKK_img003,13.7510,100.4920,2023-04-12T10:05:00Z,0.58
+TH__Metropolitan__Bangkok,TH,Bangkok,Metropolitan,TH_BKK_s002,TH_BKK_img004,13.7514,100.4925,2023-04-12T10:06:00Z,0.21
 
+VN__Metropolitan__HoChiMinh,VN,Ho Chi Minh City,Metropolitan,VN_HCM_s001,VN_HCM_img001,10.7769,106.7009,2023-05-18T08:40:00Z,0.69
+VN__Metropolitan__HoChiMinh,VN,Ho Chi Minh City,Metropolitan,VN_HCM_s001,VN_HCM_img002,10.7772,106.7013,2023-05-18T08:41:00Z,0.73
+VN__Metropolitan__HoChiMinh,VN,Ho Chi Minh City,Metropolitan,VN_HCM_s002,VN_HCM_img003,10.7710,106.6900,2023-05-18T11:20:00Z,0.44
+VN__Metropolitan__HoChiMinh,VN,Ho Chi Minh City,Metropolitan,VN_HCM_s002,VN_HCM_img004,10.7714,106.6905,2023-05-18T11:21:00Z,0.32
+
+SG__Metropolitan__Singapore,SG,Singapore,Metropolitan,SG_SIN_s001,SG_SIN_img001,1.3521,103.8198,2023-06-02T13:05:00Z,0.18
+SG__Metropolitan__Singapore,SG,Singapore,Metropolitan,SG_SIN_s001,SG_SIN_img002,1.3524,103.8202,2023-06-02T13:06:00Z,0.24
+SG__Metropolitan__Singapore,SG,Singapore,Metropolitan,SG_SIN_s002,SG_SIN_img003,1.3400,103.8300,2023-06-02T14:30:00Z,0.09
+SG__Metropolitan__Singapore,SG,Singapore,Metropolitan,SG_SIN_s002,SG_SIN_img004,1.3404,103.8305,2023-06-02T14:31:00Z,0.14
+
+BD__Metropolitan__Dhaka,BD,Dhaka,Metropolitan,BD_DHK_s001,BD_DHK_img001,23.8103,90.4125,2023-03-21T09:10:00Z,0.81
+BD__Metropolitan__Dhaka,BD,Dhaka,Metropolitan,BD_DHK_s001,BD_DHK_img002,23.8107,90.4130,2023-03-21T09:11:00Z,0.78
+BD__Metropolitan__Dhaka,BD,Dhaka,Metropolitan,BD_DHK_s002,BD_DHK_img003,23.8050,90.4200,2023-03-21T10:40:00Z,0.66
+BD__Metropolitan__Dhaka,BD,Dhaka,Metropolitan,BD_DHK_s002,BD_DHK_img004,23.8055,90.4204,2023-03-21T10:41:00Z,0.59
+
+NO__Metropolitan__Oslo,NO,Oslo,Metropolitan,NO_OSL_s001,NO_OSL_img001,59.9139,10.7522,2023-07-10T12:00:00Z,0.05
+NO__Metropolitan__Oslo,NO,Oslo,Metropolitan,NO_OSL_s001,NO_OSL_img002,59.9142,10.7526,2023-07-10T12:01:00Z,0.08
+NO__Metropolitan__Oslo,NO,Oslo,Metropolitan,NO_OSL_s002,NO_OSL_img003,59.9200,10.7600,2023-07-10T15:25:00Z,0.03
+NO__Metropolitan__Oslo,NO,Oslo,Metropolitan,NO_OSL_s002,NO_OSL_img004,59.9205,10.7605,2023-07-10T15:26:00Z,0.06
