@@ -90,4 +90,13 @@ All quantitative results presented in the manuscript can be reproduced using:
 ## 6. Code availability
 
 The code supporting this study is available at:
-- https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME
+- https://github.com/jackdhdjdbdjdbdjidodod79-byte/global-informal-economy-streetview
+
+## 7. Data availability
+
+A sample dataset is included in the repository for demonstration purposes.
+- Due to data volume and licensing constraints, the full dataset used in the study is available from the corresponding author upon reasonable request.
+
+## 8. License
+
+This project is licensed under the MIT License. See the LICENSE file for details.  
