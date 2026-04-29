@@ -1,3 +1,20 @@
-Mean vendor score: 0.41
-Number of cities: 5
-Number of streets: 10
+=== Demo Results ===
+
+Global statistics:
+- Mean vendor score: 0.41
+- Standard deviation: 0.29
+
+City-level vendor index:
+- Bangkok: 0.54
+- Ho Chi Minh City: 0.55
+- Dhaka: 0.71
+- Singapore: 0.16
+- Oslo: 0.06
+
+Dataset summary:
+- Number of cities: 5
+- Number of streets: 10
+- Number of images: 20
+
+Note:
+Vendor scores are derived from CLIP-based semantic similarity between street view images and vendor-related textual prompts. City-level indices are computed by aggregating image-level scores.
