@@ -1,42 +1,47 @@
-import os
 import pandas as pd
 
-INPUT = "demo_data/demo_clip_scores.csv"
-OUTPUT = "outputs/demo_vendor_index.csv"
+# =========================
+# Load demo data
+# =========================
+df = pd.read_csv("demo_data/demo_clip_scores.csv")
 
-os.makedirs("outputs", exist_ok=True)
+print("=== Demo dataset loaded ===")
+print(df.head(), "\n")
 
-df = pd.read_csv(INPUT)
+# =========================
+# Basic statistics
+# =========================
+print("=== Basic statistics ===")
 
-required = {"city_id", "street_id", "image_id", "vendor_score"}
-missing = required - set(df.columns)
-if missing:
-    raise ValueError(f"Missing columns: {missing}")
+print(f"Number of images: {len(df)}")
+print(f"Number of cities: {df['city_id'].nunique()}")
+print(f"Number of streets: {df['street_id'].nunique()}")
 
-street = (
-    df.groupby(["city_id", "street_id"], as_index=False)
-    .agg(
-        n_img=("image_id", "count"),
-        street_vendor_score_mean=("vendor_score", "mean"),
-        street_vendor_detect_rate=("vendor_score", lambda x: (x > 0.5).mean()),
-        street_vendor_top20_mean=("vendor_score", lambda x: x.sort_values(ascending=False).head(max(1, int(len(x)*0.2))).mean())
-    )
-)
+mean_score = df["vendor_score"].mean()
+print(f"Mean vendor score: {mean_score:.3f}")
 
-street["street_vendor_index"] = (
-    0.5 * street["street_vendor_score_mean"] +
-    0.3 * street["street_vendor_detect_rate"] +
-    0.2 * street["street_vendor_top20_mean"]
-)
+# =========================
+# Street-level aggregation
+# =========================
+street_stats = df.groupby("street_id")["vendor_score"].mean().reset_index()
 
-city = (
-    street.groupby("city_id", as_index=False)
-    .agg(
-        n_street=("street_id", "count"),
-        city_vendor_index=("street_vendor_index", "mean")
-    )
-)
+print("\n=== Street-level aggregation ===")
+print(street_stats.head())
 
-street.to_csv(OUTPUT, index=False)
-print(f"Demo completed. Output saved to: {OUTPUT}")
-print(city)
+# =========================
+# City-level aggregation
+# =========================
+city_stats = df.groupby("city_name")["vendor_score"].mean().reset_index()
+
+print("\n=== City-level aggregation ===")
+print(city_stats)
+
+# =========================
+# Simple correlation demo
+# =========================
+if "lat" in df.columns:
+    corr = df["vendor_score"].corr(df["lat"], method="spearman")
+    print("\n=== Example correlation ===")
+    print(f"Spearman correlation (vendor_score vs latitude): {corr:.3f}")
+
+print("\n=== Demo completed successfully ===")
