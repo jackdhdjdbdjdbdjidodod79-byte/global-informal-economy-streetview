@@ -1,1 +1,3 @@
-
+Mean vendor score: 0.41
+Number of cities: 5
+Number of streets: 10
